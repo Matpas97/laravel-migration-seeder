@@ -15,10 +15,15 @@ class Trains extends Migration
     {
         schema::create('train',function(Blueprint $table) {
             $table->string('company',20);
-            $table->string('start_station',20);
-            $table->string('enf_station',20);
-            $table->string('start_station',20);
+            $table->string('departure_station',20);
+            $table->string('arrival_station',20);
+            $table->string('departure_time',20);
+            $table->string('arrival_time',20);
             $table->time();
+            $table->int('code_train');
+            $table->int('number_vagon');
+            $table->int('in_time');
+            $table->string('cancelled');
         });
        
 
