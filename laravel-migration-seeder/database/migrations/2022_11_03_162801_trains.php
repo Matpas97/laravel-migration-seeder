@@ -14,16 +14,19 @@ class Trains extends Migration
     public function up()
     {
         schema::create('train',function(Blueprint $table) {
-            $table->string('company',20);
+            $table->id();
+            $table->string('company',100);
             $table->string('departure_station',20);
             $table->string('arrival_station',20);
-            $table->string('departure_time',20);
-            $table->string('arrival_time',20);
-            $table->time();
-            $table->int('code_train');
-            $table->int('number_vagon');
-            $table->int('in_time');
-            $table->string('cancelled');
+            $table->time('departure_time',20);
+            $table->time('arrival_time',20);
+            $table->date('departure_date',20);
+            $table->date('arrival_date',20);
+            $table->string('code_train',20)->unique();
+            $table->tinyInteger('number_vagon')->unsigned()->default(0);
+            $table->boolean('in_time')->default(true);
+            $table->tinyInteger('cancelled')->default(0);
+            $table->timestamps();
         });
        
 
